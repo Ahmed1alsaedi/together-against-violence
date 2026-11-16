@@ -73,7 +73,11 @@ button:focus-visible{outline:3px solid var(--pri);outline-offset:2px}
 .social-step h2,.social-example h2{margin:0 0 7px;color:var(--pri);font-size:1.13rem}
 .social-step p,.social-example p{margin:0;font-size:1rem}
 .social-example{padding:16px 18px}
-.social-example blockquote{margin:0 0 9px;padding-inline-start:12px;border-inline-start:3px solid var(--pri);font-size:1.04rem}
+.social-example blockquote{margin:10px 0 14px;padding-inline-start:12px;border-inline-start:3px solid var(--pri);font-size:1.04rem}
+.social-example-steps{margin:0;padding-inline-start:24px;font-size:1rem}
+.social-example-steps li+li{margin-top:10px}
+.social-example-steps li::marker,.social-example-steps strong{color:var(--pri);font-weight:800}
+.social-example-steps strong{display:block}
 .social-support{min-height:48px;padding:8px 15px;font-size:1rem}
 .share-card{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:14px 22px;margin-top:22px;
   padding:16px 18px;border:2px solid var(--line);border-radius:20px;background:var(--card)}
@@ -733,9 +737,14 @@ function socialWork(){
     '<article class="social-step"><h2>تستمع وتفهم الاحتياج</h2><p>تعطي المرأة المتعرّضة للعنف مساحة للكلام، وتسألها عن أكثر ما تحتاجه الآن.</p></article>'+
     '<article class="social-step"><h2>توضّح الخيارات وتنسّق الدعم</h2><p>تشرح خيارات المساندة وتساعدها على الوصول إلى الجهة المناسبة بحسب حالتها.</p></article>'+
     '<article class="social-step"><h2>تتابع الخطوات معها</h2><p>تُشركها في القرارات المتعلقة بها، وتحترم خصوصيتها وتوضّح حدود السرية.</p></article>'+
-    '</div><article class="card social-example"><h2>مثال</h2>'+
-    '<blockquote>امرأة تواصلت مع جهة دعم وقالت «ما أدري من وين أبدأ».</blockquote>'+
-    '<p>تستمع الأخصائية لها، وتساعدها في تحديد أول احتياج لها، مثل الوصول إلى إحدى خدمات الحماية الأسرية، ثم تتفق معها على الخطوة التالية.</p></article>'+
+    '</div><article class="card social-example"><h2>مثال تطبيقي عن التحكّم المالي</h2>'+
+    '<p>تواصلت نورة مع جهة دعم بعدما أخذ أحد أفراد أسرتها بطاقتها البنكية ومنعها من استخدام راتبها.</p>'+
+    '<blockquote>«أبي أعرف وش الخيارات المتاحة لي، وما أدري من وين أبدأ».</blockquote>'+
+    '<ol class="social-example-steps">'+
+    '<li><strong>تحديد الاحتياج</strong><p>تستمع الأخصائية إلى نورة وتسألها «وش أكثر شيء تحتاجينه الآن؟». تقول نورة إنها تريد فهم خياراتها أولًا.</p></li>'+
+    '<li><strong>توضيح الخيارات</strong><p>تشرح الأخصائية كيف يمكن لخدمات الحماية الأسرية أن تساندها، وتعرض مساعدتها في التواصل مع الجهة المناسبة إذا رغبت.</p></li>'+
+    '<li><strong>الاتفاق على الخطوة التالية</strong><p>تختار نورة أن تبدأ بالاستفسار عن خدمات الحماية، وتتفق مع الأخصائية على طريقة ووقت يناسبانها للمتابعة.</p></li>'+
+    '</ol></article>'+
     '<button class="prim social-support" id="social-support">أين أجد الدعم؟</button>'+
     '<details class="learn-sources"><summary>مراجع المعلومات</summary><ul>'+
     '<li><a href="https://www.hrsd.gov.sa/ministry/about-ministry/about-us/ministry-sectors/767581">وزارة الموارد البشرية والتنمية الاجتماعية · الحماية الأسرية</a></li>'+
