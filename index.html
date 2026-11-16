@@ -65,22 +65,32 @@ button:focus-visible{outline:3px solid var(--pri);outline-offset:2px}
 .feature-button strong{display:block;font-size:1.22rem;line-height:1.3}
 .feature-button.prim small{color:inherit}
 .feature-icon{display:grid;place-items:center;flex:none;width:2.55rem;height:2.55rem;background:var(--bg);border-radius:12px;font-size:1.2rem}
+.share-card{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:14px 22px;margin-top:22px;
+  padding:16px 18px;border:2px solid var(--line);border-radius:20px;background:var(--card)}
+.share-card img{display:block;width:clamp(120px,26vw,144px);height:auto;flex:none}
+.share-copy{flex:1 1 155px}
+.share-copy h2{margin:0 0 3px;color:var(--ink);font-size:1.23rem}
+.share-copy p{margin:0;color:var(--mut);font-size:1rem}
+.share-copy a{display:inline-flex;align-items:center;min-height:44px;color:var(--pri);font-size:.92rem;font-weight:700}
 .question-kind{margin:0 0 6px;font-size:.95rem;color:var(--pri);font-weight:800}
 .spot-shell{max-width:680px;margin-inline:auto}
 .spot-shell .card{padding:clamp(15px,4vw,24px)}
+.spot-score{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);
+  margin:0 0 12px;padding-bottom:8px;color:var(--mut);font-size:.95rem}
+.spot-score strong{color:var(--pri);font-variant-numeric:tabular-nums}
 .spot-prompt{font-size:clamp(1.2rem,4vw,1.55rem);margin:0 0 12px}
 .spot-sentence{font-size:1.16rem;line-height:2.1;overflow-wrap:anywhere}
-.spot-phrase{padding:.13em .33em;border-radius:9px;color:var(--ink)}
-button.spot-phrase{display:inline-block;max-width:100%;min-height:44px;line-height:1.45;vertical-align:baseline;
-  background:var(--bg);border:1px solid var(--line);border-bottom:2px solid var(--pri);text-align:start}
+.spot-phrase{display:inline-block;max-width:100%;min-height:44px;padding:.29em .33em;border:1px solid transparent;
+  border-bottom-width:2px;border-radius:9px;color:var(--ink);font:inherit;line-height:1.45;vertical-align:baseline;text-align:start}
+button.spot-phrase{background:var(--bg);border-color:var(--line);border-bottom-color:var(--pri)}
 button.spot-phrase:hover{border-color:var(--pri)}
-.spot-right{background:var(--okbg);box-shadow:inset 0 -2px var(--ok);font-weight:800}
+.spot-right{background:var(--okbg);border-bottom-color:var(--ok)}
 .spot-missed{background:var(--nobg);box-shadow:inset 0 -2px var(--no)}
-.spot-feedback{border-inline-start:4px solid var(--pri);border-radius:12px;background:var(--card);padding:10px 14px;margin:0 0 14px;font-size:1rem}
-.spot-feedback h1{margin:0 0 2px;font-size:1.25rem}
-.spot-feedback p{margin:0}
-.spot-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.spot-actions button{min-height:48px;padding:8px 10px;font-size:1rem}
+.spot-feedback{border-top:1px solid var(--line);padding-top:12px;margin-top:14px;font-size:1rem}
+.spot-category{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 10px;
+  color:var(--ink);background:var(--bg);font-weight:800;font-size:.9rem}
+.spot-reason{display:block;margin-top:5px}
+.spot-next{width:100%;min-height:48px;padding:8px 10px;font-size:1rem}
 .spot-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .victory-ticket .spot-sentence{margin-top:12px;font-size:1rem}
 .learn-list{display:grid;gap:10px;margin:0 0 18px}
@@ -133,6 +143,8 @@ background:radial-gradient(circle at 30% 26%,#ffffffc2,transparent 34%),var(--ba
 (function(){
 var ORG={name:"معاً ضد العنف ضد المرأة",logo:""};
 var WIN_TARGET=3;
+var SHARE_URL="https://ahmed1alsaedi.github.io/together-against-violence/";
+var SHARE_QR="data:image/png;base64,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";
 var NUMS=[
   ["مركز بلاغات العنف الأسري","1919","الإبلاغ عن العنف الأسري وطلب المساعدة على مدار الساعة في جميع مناطق المملكة.","https://www.hrsd.gov.sa/ministry/about-ministry/about-us/ministry-sectors/767581"],
   ["الطوارئ الموحّدة","911","مناطق مكة المكرمة والمدينة المنورة والرياض والمنطقة الشرقية."],
@@ -176,35 +188,51 @@ var MYTH=[
 ["الاتفاق المشترك على ميزانية البيت يبرر منع أحد الطرفين من الوصول إلى ماله.",false,"الاتفاق على المصروف يقوم على الاختيار المشترك مع احترام الاستقلال المالي."],
 ["قد يستخدم شخص حساباً منتحلاً للإضرار بسمعة امرأة وإيذائها.",true,"انتحال الحساب للتشهير أو المضايقة مثال على الإيذاء الرقمي."],
 ["يمكن معرفة أن العلاقة آمنة بمجرد رؤية طريقة تعامل الطرفين أمام الآخرين.",false,"ما نراه في العلن جزء من الصورة. خذ كلام من تروي تجربتها بجدية."]];
-function spotScene(first,link,second,answer,explanation){
-  return {q:first+link+second+".",spotLink:link,
+function spotScene(first,link,second,answer,type,explanation){
+  return {q:first+link+second+".",spotLink:link,spotType:type,
     o:[[first,answer===0,explanation],[second,answer===1,explanation]]};
 }
 var SPOT=[
-  spotScene("اتفقوا على مصروف البيت","، وبعدها ","أخذ بطاقتها ومنعها تستخدم راتبها",1,
-    "هنا بدأ التحكّم بمالها، لأنه منعها من الوصول إلى راتبها."),
-  spotScene("أجبرها تعطيه رمز جوالها","، وبعدها ","سألها عن يومها",0,
-    "إجبارها على إعطاء رمز الجوال يتجاوز خصوصيتها."),
-  spotScene("سألها إذا تبي تشارك موقعها","، ثم ","اشترط مشاركة موقعها عشان يسمح لها تطلع",1,
-    "صار الموقع شرطًا على خروجها، وهذا تحكّم في حركتها."),
-  spotScene("هدد بنشر صورتها إذا رفضت طلبه","، ثم ","سألها متى يناسبها تتكلم",0,
-    "التهديد بنشر الصورة ضغط عليها عشان توافق."),
-  spotScene("اتفقوا يأجّلون النقاش","، لكنه ","كسر أغراضها عشان يخوّفها",1,
-    "تكسير أغراضها بقصد التخويف شكل من الإيذاء النفسي."),
-  spotScene("قال لها إنها السبب في إهانته لها","، وبعدها ","اقترح يرجعون للنقاش بعد الدوام",0,
-    "حمّلها مسؤولية تصرّف اختاره هو."),
-  spotScene("سألها إذا تبي تسمع رأيه","، وبعدها ","نشر قصتها في المجموعة بدون إذنها",1,
-    "نشر كلامها الخاص بدون إذنها تعدّى على خصوصيتها."),
-  spotScene("منعها من زيارة أهلها عشان توافق على رأيه","، وبعدها ","اقترح يرجعون للنقاش بكرة",0,
-    "ربط زيارة أهلها بموافقتها على رأيه طريقة للضغط والعزل."),
-  spotScene("طلب منها توضّح فكرتها","، وبعدها ","سخر من كلامها قدّام الزملاء",1,
-    "السخرية قدّام الناس تجرحها وتقلّل من شأنها."),
-  spotScene("أجبرها توقّع على قرض باسمها","، وبعدها ","فتح موضوع ميزانية البيت",0,
+  spotScene("اتفقا على مصروف البيت","، ثم ","أخذ بطاقتها ومنعها من استخدام راتبها",1,"تحكّم مالي",
+    "حرمانها من الوصول إلى راتبها يقيّد استقلالها المالي."),
+  spotScene("أجبرها على إعطائه رمز هاتفها","، ثم ","سألها عن يومها",0,"انتهاك الخصوصية",
+    "أخذ رمز الهاتف بالإجبار تجاوزٌ لخصوصيتها."),
+  spotScene("سألها إن كانت تريد مشاركة موقعها","، ثم ","جعل مشاركة الموقع شرطًا لخروجها",1,"تحكّم في الحركة",
+    "ربط خروجها بمشاركة موقعها يقيّد حريتها في الحركة."),
+  spotScene("هدّد بنشر صورتها على الإنترنت إن رفضت طلبه","، ثم ","سألها عن وقت مناسب للحديث",0,"ابتزاز إلكتروني",
+    "استخدم التهديد بنشر الصورة للضغط عليها كي توافق."),
+  spotScene("اتفقا على تأجيل النقاش","، ثم ","حطّم أغراضها لتخويفها",1,"إيذاء نفسي",
+    "حطّم أغراضها ليخيفها ويضغط عليها."),
+  spotScene("قال لها إن إهانته لها كانت بسببها","، ثم ","اقترح استكمال النقاش بعد العمل",0,"إلقاء اللوم عليها",
+    "مسؤولية الإهانة تقع على من وجّهها."),
+  spotScene("سألها إن كانت تريد سماع رأيه","، ثم ","نشر تفاصيل حديثها في المجموعة من دون إذنها",1,"انتهاك الخصوصية",
+    "نشر الحديث الخاص من دون إذنها يتجاوز حقّها في تحديد من يعرف التفاصيل."),
+  spotScene("منعها من زيارة أسرتها حتى توافق على رأيه","، ثم ","اقترح استكمال النقاش غدًا",0,"عزل اجتماعي",
+    "استخدم منع التواصل مع أسرتها للضغط عليها."),
+  spotScene("طلب منها توضيح فكرتها","، ثم ","سخر منها أمام زملائها",1,"إساءة لفظية",
+    "السخرية منها أمام الآخرين إساءة بالكلام."),
+  spotScene("أجبرها على توقيع قرض باسمها","، ثم ","ناقش معها ميزانية البيت",0,"تحكّم مالي",
     "إجبارها على دين باسمها يقيّد قراراتها المالية."),
-  spotScene("قالت له تبي يوقف الرسائل","، لكنه ","ظل يراسلها من أرقام جديدة",1,
-    "استمرار الرسائل من أرقام ثانية تجاهل طلبها الواضح بالتوقف."),
-  spotScene("أصرّ يتكلم عنها في الموعد رغم طلبها تتكلم بنفسها","، ثم ","اتفق معها على وقت اللقاء",0,
-    "كان يقدر يرافقها ويترك لها اختيار الكلام بنفسها.")
+  spotScene("طلبت منه التوقّف عن مراسلتها","، لكنه ","واصل إرسال الرسائل من أرقام جديدة",1,"مضايقة إلكترونية",
+    "واصل مراسلتها بعد أن طلبت منه التوقّف بوضوح."),
+  spotScene("أصرّ على التحدّث نيابةً عنها رغم طلبها أن تتحدّث بنفسها","، ثم ","اتفق معها على وقت الموعد",0,"تجاهل حقّها في الاختيار",
+    "المساندة هنا تكون بمرافقتها واحترام اختيارها التحدّث بنفسها."),
+  spotScene("اتفقا على مكان اللقاء","، ثم ","فعّل تتبّع موقعها من دون علمها",1,"مراقبة رقمية",
+    "فعّل تتبّع تحرّكاتها من دون علمها أو موافقتها."),
+  spotScene("هدّد بحرمانها من مصروف البيت إن لم تسلّمه راتبها","، ثم ","اقترح وضع خطة للادخار",0,"تحكّم مالي",
+    "هدّد بحرمانها من المصروف ليجبرها على تسليم راتبها."),
+  spotScene("سألها عن الموعد الذي تفضّله","، ثم ","نشر رقمها على الإنترنت ليشجّع الآخرين على مضايقتها",1,"مضايقة إلكترونية",
+    "كشف رقمها الشخصي بقصد تعريضها للمضايقة."),
+  spotScene("أمسك ذراعها بالقوة ليمنعها من المغادرة","، ثم ","اقترح تأجيل النقاش",0,"إيذاء جسدي",
+    "استخدم القوة الجسدية لمنعها من المغادرة."),
+  spotScene("طلب منها مناقشة مصروف البيت","، ثم ","منعها من العمل حتى تعتمد عليه ماليًا",1,"تحكّم مالي",
+    "منعها من العمل يحدّ من استقلالها المالي."),
+  spotScene("غيّر كلمة مرور بريدها من دون إذنها ليمنعها من الدخول","، ثم ","اتفق معها على وقت استخدام الجهاز المشترك",0,"السيطرة على الحساب",
+    "سيطر على حسابها ومنعها من الوصول إلى بريدها."),
+  spotScene("عرض أن يرافقها إلى السيارة","، لكنه ","استمر في إمساك يدها بعد أن طلبت منه التوقّف",1,"تجاوز الحدود الجسدية",
+    "تجاهل طلبها بإيقاف اللمس."),
+  spotScene("هدّد بكشف معلوماتها الخاصة إذا طلبت المساعدة","، ثم ","ناقش معها موعد اجتماع الأسرة",0,"تهديد وضغط",
+    "استغل معلوماتها الخاصة للضغط عليها حتى تتراجع عن طلب المساعدة.")
 ];
 var SCEN=[
 {q:"صديقة لك تلمّح إلى أنها خائفة من أحد في بيتها. ما التصرف الأنسب؟",o:[["أستمع لها بهدوء دون لوم وأعرّفها بجهات الدعم",1,"الاستماع دون حكم ثم التعريف بالدعم هو أهم خطوة."],["أقول لها: أكيد أنك تبالغين",0,"التقليل من كلامها يجعلها تتوقف عن طلب المساعدة."],["أتجاهل الموضوع حتى لا أتدخل",0,"وجودك بجانبها قد يكون فارقاً."]]},
@@ -357,13 +385,14 @@ function winBadge(){
   return '<div class="win"><span class="win-icon" aria-hidden="true">🏆</span>'+
     '<div><strong>فزت!</strong><small>وصلت إلى '+arabicNumber.format(WIN_TARGET)+' إجابات صحيحة في هذه الجولة.</small></div></div>';
 }
-function victory(title,explanation,last,continueRound,stopRound,selectedScene){
+function victory(title,explanation,last,continueRound,stopRound,selectedScene,continueLabel){
   $(hdr(title)+'<section class="victory-ticket" aria-labelledby="screen-focus">'+
     '<div class="victory-trophy" aria-hidden="true">🏆</div>'+
     '<h1 id="screen-focus" tabindex="-1">فزت!</h1>'+
     '<p>وصلت إلى '+arabicNumber.format(WIN_TARGET)+' إجابات صحيحة.</p>'+
     (selectedScene||"")+'<p class="victory-feedback">'+explanation+'</p></section>'+
-    '<div class="row victory-actions"><button class="prim" id="win-continue">'+(last?"عرض النتيجة":"أكمل اللعب")+'</button>'+
+    '<div class="row victory-actions"><button class="prim" id="win-continue">'+
+    (continueLabel||(last?"عرض النتيجة":"أكمل اللعب"))+'</button>'+
     (last?"":'<button id="win-stop">أنهِ الجولة</button>')+'</div>');
   g("win-continue").onclick=continueRound;
   if(!last)g("win-stop").onclick=stopRound;
@@ -408,9 +437,14 @@ function spotSentence(question,chosen){
   return '<div class="spot-sentence"'+(chosen?"":' role="group" aria-label="اختر العبارة"')+'>'+
     phrases.join(question.spotLink)+'.</div>';
 }
-function spotPrompt(question){
-  return '<h1 class="spot-prompt" id="screen-focus" tabindex="-1">اضغط على الجزء اللي فيه المشكلة</h1>'+
-    spotSentence(question);
+function spotPrompt(question,chosen){
+  var title=chosen?(chosen[1]?"اختيار صحيح":"هنا المشكلة"):"اختر العبارة التي تكشف المشكلة";
+  return '<h1 class="spot-prompt" id="screen-focus" tabindex="-1">'+title+'</h1>'+
+    spotSentence(question,chosen);
+}
+function spotExplanation(question,solution){
+  return '<span class="spot-category">'+question.spotType+'</span>'+
+    '<span class="spot-reason">'+solution[2]+'</span>';
 }
 function bindSpot(question,choose){
   question.o.forEach(function(option,index){
@@ -447,14 +481,15 @@ function quiz(title,questions,again,choiceLayout){
     var correct=Boolean(chosen[1]);
     var solution=question.o.find(function(option){return option[1]});
     var selectedScene=question.spotLink?spotSentence(question,chosen):"";
+    var explanation=selectedScene?spotExplanation(question,solution):solution[2];
     if(correct)score++;
     else missed.push({number:index+1,question:question.q,chosen:chosen,solution:solution});
     if(correct&&score===WIN_TARGET){
-      victory(title,solution[2],index+1===total,advance,finish,selectedScene);
+      victory(title,explanation,index+1===total,advance,finish,selectedScene);
       return;
     }
     var tone=correct?"good":"bad";
-    var feedback=selectedScene?solution[2]:chosen[2]+
+    var feedback=selectedScene?explanation:chosen[2]+
       (correct?note(true):'<p class="nt">الإجابة الصحيحة · '+solution[0]+'</p>');
     $(hdr(title)+progress(total,index)+
       '<div class="card '+(selectedScene?"":tone)+'">'+questionKind(question)+
@@ -498,18 +533,35 @@ function scen(){openGame("scen")}
 function match(){openGame("match")}
 function spotGame(){
   var title=QUIZ_GAMES.spot.title;
-  var question=drawQuestions("spot",1)[0];
-  $(hdr(title)+'<section class="spot-shell"><div class="card">'+spotPrompt(question)+'</div></section>');
-  bindSpot(question,function(option){
-    var solution=question.o.find(function(item){return item[1]});
-    $( '<section class="spot-shell"><div class="spot-feedback"><h1 id="screen-focus" tabindex="-1">'+
-      (option[1]?"أصبت!":"شوف العبارة المظلّلة")+'</h1><p>'+solution[2]+'</p></div>'+
-      '<div class="card">'+spotSentence(question,option)+'</div>'+
-      '<div class="spot-actions"><button class="prim" id="spot-next">موقف ثاني</button>'+
-      '<button id="spot-home">الرئيسية</button></div></section>');
-    g("spot-next").onclick=spotGame;
-    g("spot-home").onclick=home;
-  });
+  var score=0,answered=0,missed=[];
+  function finish(){done(title,score,answered,answered,missed,spotGame)}
+  function nextScene(){
+    var question=drawQuestions("spot",1)[0];
+    var solution=question.o.find(function(option){return option[1]});
+    function show(chosen){
+      var feedback=chosen?'<div class="spot-feedback">'+spotExplanation(question,solution)+'</div>':"";
+      $( '<section class="spot-shell"><div class="bar"><span>'+title+'</span>'+
+        '<button id="spot-home">الرئيسية</button></div><div class="card">'+
+        '<p class="spot-score">الإجابات الصحيحة <strong>'+arabicNumber.format(score)+' من '+arabicNumber.format(WIN_TARGET)+'</strong></p>'+
+        spotPrompt(question,chosen)+feedback+'</div>'+
+        (chosen?'<button class="prim spot-next" id="spot-next">موقف آخر</button>':"")+'</section>');
+      g("spot-home").onclick=home;
+      if(chosen)g("spot-next").onclick=nextScene;
+      else bindSpot(question,answer);
+    }
+    function answer(chosen){
+      answered++;
+      if(chosen[1])score++;
+      else missed.push({number:answered,question:question.q,chosen:chosen,solution:solution});
+      if(score===WIN_TARGET){
+        victory(title,spotExplanation(question,solution),false,spotGame,finish,spotSentence(question,chosen),"جولة جديدة");
+        return;
+      }
+      show(chosen);
+    }
+    show();
+  }
+  nextScene();
 }
 function quickGame(){
   var questions=deal("quick-types",Object.keys(QUIZ_GAMES),3).map(function(key){
@@ -677,6 +729,10 @@ $('<div class="menu"><div class="menu-actions"><button class="support-cta" oncli
 '<button onclick="scen()">ماذا تفعل لو؟<small>مواقف تحتاج إلى قرار</small></button>'+
 '<button onclick="match()">طابق النوع بالمثال<small>تعرّف على أنواع العنف</small></button>'+
 '<button onclick="pledge()">بطاقة التزامي<small>أنشئ بطاقة وحمّلها كصورة</small></button></div>'+
+'<section class="share-card" aria-labelledby="share-heading">'+
+'<img src="'+SHARE_QR+'" width="144" height="144" alt="رمز QR لفتح الموقع">'+
+'<div class="share-copy"><h2 id="share-heading">افتح الموقع بجوالك</h2>'+
+'<p>امسح الرمز بكاميرا جوالك وابدأ اللعب.</p><a href="'+SHARE_URL+'">رابط الموقع</a></div></section>'+
 (played?'<div class="cnt">عدد المشاركات اليوم: '+played+'</div>':'')+'</div>')}
 window.home=home;window.myth=myth;window.spotGame=spotGame;window.scen=scen;window.match=match;window.quickGame=quickGame;window.learn=learn;window.pledge=pledge;window.help=help;window.fs=fs;
 home();
