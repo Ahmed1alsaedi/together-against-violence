@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>معاً ضد العنف ضد المرأة</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap">
+<style>
+:root{--bg:#fff4ea;--card:#fff;--ink:#3a2314;--mut:#7a5a44;--pri:#c2500a;--on:#fff;--ok:#1f8a5b;--okbg:#dff3e8;--no:#b3261e;--nobg:#fbe3df;--line:#f3d9c3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241609;--card:#33200f;--ink:#fff1e6;--mut:#d9b99f;--pri:#ff9a4d;--on:#241609;--ok:#5fd29b;--okbg:#17382a;--no:#ff8d7f;--nobg:#401f1b;--line:#573a22}}
+:root[data-theme="dark"]{--bg:#241609;--card:#33200f;--ink:#fff1e6;--mut:#d9b99f;--pri:#ff9a4d;--on:#241609;--ok:#5fd29b;--okbg:#17382a;--no:#ff8d7f;--nobg:#401f1b;--line:#573a22}
+html{scroll-padding-top:env(safe-area-inset-top,0px);font-size:calc(16px*var(--fs,1))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Tajawal","Segoe UI",Tahoma,Arial,sans-serif;font-size:1.375rem;line-height:1.6;min-height:100vh;-webkit-tap-highlight-color:transparent;user-select:none}
+#app{max-width:900px;margin:0 auto;padding:24px 20px 40px}
+h1{font-size:2.1rem;margin:8px 0 6px;color:var(--pri)}
+p.sub{color:var(--mut);margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px}
+button{font:inherit;cursor:pointer;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:18px;padding:18px 20px;min-height:64px;text-align:center}
+button:active{transform:scale(.98)}
+button:focus-visible{outline:3px solid var(--pri);outline-offset:2px}
+.menu .grid button{padding:26px 20px;font-size:1.25rem;font-weight:700;border-color:var(--pri)}
+.menu small{display:block;font-weight:400;color:var(--mut);font-size:.8rem;margin-top:4px}
+.prim{background:var(--pri);color:var(--on);border-color:var(--pri);font-weight:700}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:28px;margin-bottom:18px}
+.q{font-size:1.5rem;font-weight:700;min-height:110px;display:flex;align-items:center;color:var(--ink);margin:0}
+.bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px;color:var(--mut)}
+.bar button{min-height:48px;padding:8px 18px;font-size:.9rem}
+.row{display:flex;gap:14px;flex-wrap:wrap}.row>button{flex:1;min-width:min(100%,200px)}
+.good{background:var(--okbg);border-color:var(--ok)}.bad{background:var(--nobg);border-color:var(--no)}
+.fb{border-radius:18px;padding:18px 22px;margin:14px 0;border:2px solid}
+.fb b{display:block;font-size:1.15rem;margin-bottom:4px}
+.opts{display:grid;gap:12px}.opts button{text-align:right}
+.score{font-size:3rem;color:var(--pri);font-weight:800;text-align:center}
+.rk{text-align:center;font-size:1.5rem;font-weight:800;margin:0 0 6px}
+.num{font-size:2.6rem;font-weight:800;color:var(--pri);direction:ltr;display:inline-block}
+.progress{text-align:center;color:var(--mut);font-size:1rem;margin:8px 0 5px}
+.dots{display:flex;gap:6px;justify-content:center;margin:6px 0 18px}.dots i{width:12px;height:12px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--pri)}
+.menu-actions{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+.menu-actions button{min-height:48px;padding:8px 15px;font-size:1rem}
+.support-cta{background:var(--pri);color:var(--on);border-color:var(--pri);font-weight:800}
+.contacts{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.contacts li{border-top:1px solid var(--line);padding:14px 0 0}
+.contacts p{margin:4px 0 0;color:var(--mut);font-size:1rem}
+.call{display:inline-flex;align-items:center;min-height:48px;gap:8px;color:var(--pri);font-weight:800}
+.win{display:flex;gap:12px;align-items:center;justify-content:center;border:2px solid var(--pri);border-radius:18px;padding:14px 16px;margin:0 0 16px;background:var(--card);text-align:right}
+.win strong,.win small{display:block}
+.win strong{font-size:1.35rem;color:var(--pri)}
+.win small{font-size:.95rem;color:var(--mut)}
+.win-icon{font-size:2rem;line-height:1}
+.victory-ticket{position:relative;max-width:560px;margin:0 auto 18px;border:2px dashed var(--pri);border-radius:26px;background:var(--card);padding:30px clamp(25px,7vw,48px);text-align:center}
+.victory-ticket::before,.victory-ticket::after{content:"";position:absolute;top:50%;width:19px;height:36px;background:var(--bg);transform:translateY(-50%)}
+.victory-ticket::before{left:-3px;border-radius:0 24px 24px 0}
+.victory-ticket::after{right:-3px;border-radius:24px 0 0 24px}
+.victory-trophy{display:grid;place-items:center;width:80px;height:80px;margin:0 auto 12px;border-radius:50%;background:var(--bg);font-size:2.7rem;line-height:1}
+.victory-ticket h1{font-size:clamp(2rem,8vw,3rem);margin:0}
+.victory-ticket p{margin:0}
+.victory-ticket .victory-feedback{margin:16px 0 0;padding-top:14px;border-top:1px dashed var(--line);color:var(--mut);font-size:1rem}
+.victory-actions{max-width:560px;margin:0 auto}
+.result-note{text-align:center;color:var(--mut);font-size:1rem;margin:0 0 18px}
+.support-info{color:var(--pri);display:inline-flex;align-items:center;min-height:44px;font-size:1rem;font-weight:700}
+.home-featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px;margin-bottom:16px}
+.feature-button{display:flex;align-items:center;gap:12px;text-align:start;min-height:76px;padding:14px 16px}
+.feature-button strong{display:block;font-size:1.22rem;line-height:1.3}
+.feature-button.prim small{color:inherit}
+.feature-icon{display:grid;place-items:center;flex:none;width:2.55rem;height:2.55rem;background:var(--bg);border-radius:12px;font-size:1.2rem}
+.question-kind{margin:0 0 6px;font-size:.95rem;color:var(--pri);font-weight:800}
+.spot-shell{max-width:680px;margin-inline:auto}
+.spot-shell .card{padding:clamp(15px,4vw,24px)}
+.spot-prompt{font-size:clamp(1.2rem,4vw,1.55rem);margin:0 0 12px}
+.spot-sentence{font-size:1.16rem;line-height:2.1;overflow-wrap:anywhere}
+.spot-phrase{padding:.13em .33em;border-radius:9px;color:var(--ink)}
+button.spot-phrase{display:inline-block;max-width:100%;min-height:44px;line-height:1.45;vertical-align:baseline;
+  background:var(--bg);border:1px solid var(--line);border-bottom:2px solid var(--pri);text-align:start}
+button.spot-phrase:hover{border-color:var(--pri)}
+.spot-right{background:var(--okbg);box-shadow:inset 0 -2px var(--ok);font-weight:800}
+.spot-missed{background:var(--nobg);box-shadow:inset 0 -2px var(--no)}
+.spot-feedback{border-inline-start:4px solid var(--pri);border-radius:12px;background:var(--card);padding:10px 14px;margin:0 0 14px;font-size:1rem}
+.spot-feedback h1{margin:0 0 2px;font-size:1.25rem}
+.spot-feedback p{margin:0}
+.spot-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.spot-actions button{min-height:48px;padding:8px 10px;font-size:1rem}
+.spot-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.victory-ticket .spot-sentence{margin-top:12px;font-size:1rem}
+.learn-list{display:grid;gap:10px;margin:0 0 18px}
+.learn-card{border:2px solid var(--line);border-radius:17px;background:var(--card)}
+.learn-card[open]{border-color:var(--pri)}
+.learn-card summary{cursor:pointer;padding:13px 16px;font-weight:800;font-size:1.12rem}
+.learn-card summary::marker{color:var(--pri)}
+.learn-card summary:focus-visible,.learn-sources summary:focus-visible{outline:2px solid var(--pri);outline-offset:2px}
+.learn-detail{padding:0 17px 14px;font-size:1rem}
+.learn-detail p{margin:0}
+.learn-detail p+p{margin-top:8px}
+.learn-detail strong,.learn-sources a{color:var(--pri)}
+.learn-sources{font-size:.95rem;margin:12px 0}
+.learn-sources summary{cursor:pointer;width:fit-content;color:var(--mut)}
+.review h2{margin:0 0 12px;font-size:1.35rem}
+.review ol{margin:0;padding-inline-start:24px}
+.review-item{padding:12px 2px;border-top:1px solid var(--line)}
+.review-item h3{margin:0 0 6px;font-size:1.1rem}
+.review-item p{margin:4px 0 0;font-size:1rem}
+.download-status:empty{display:none}
+.tip{border-right:6px solid var(--pri);background:var(--card);border-radius:14px;padding:14px 18px;margin:0 0 20px;font-size:1rem}
+.tip b{color:var(--pri)}
+.logo{max-height:80px;max-width:60%;display:block;margin:0 0 8px}
+.cnt{text-align:center;color:var(--mut);font-size:.9rem;margin-top:20px}
+.pc{background:var(--pri);color:var(--on);border-radius:26px;padding:40px 28px;text-align:center;margin-bottom:18px}
+.pb{font-size:1.1rem;font-weight:700;opacity:.9}
+.pm{font-size:2rem;font-weight:800;margin:24px 0 12px;line-height:1.5}
+.pn{font-size:1.2rem}
+input{font:inherit;width:100%;margin-top:14px;padding:14px 16px;border:2px solid var(--line);border-radius:14px;background:var(--bg);color:var(--ink);-webkit-user-select:text;user-select:text}
+ul.l{margin:8px 0 0;padding:0 22px;font-size:1rem}
+.nt{margin-top:8px;font-size:.95rem;font-weight:700}
+.pc.s1{background:var(--card);color:var(--pri);border:4px solid var(--pri)}
+.pc.s2{background:#3a2314;color:#ffd9b8}
+.pt{font-size:1.1rem;opacity:.95;margin:0 0 18px}.pk{font-size:.8rem;opacity:.8;margin-top:18px}
+.cf{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:50}.cf span{position:absolute;top:-40px;font-size:1.6rem;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+.cf .balloon{top:auto;bottom:-175px;width:clamp(30px,6vw,62px);aspect-ratio:4/5;border-radius:50%;
+background:radial-gradient(circle at 30% 26%,#ffffffc2,transparent 34%),var(--balloon);animation:rise ease-out forwards}
+.balloon::before{content:"";position:absolute;top:96%;left:calc(50% - 4px);border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:7px solid var(--balloon)}
+.balloon::after{content:"";position:absolute;top:calc(96% + 7px);left:50%;width:8px;height:39px;border-inline-start:1px solid var(--mut);border-radius:50%}
+@keyframes rise{0%{transform:translateY(0) rotate(-12deg)}45%{transform:translate(22px,-60vh) rotate(14deg)}100%{transform:translate(-12px,-135vh) rotate(-8deg)}}
+@media (prefers-reduced-motion:reduce){.cf{display:none}}
+@keyframes pop{from{transform:scale(.96);opacity:.5}}.fb{animation:pop .25s}
+@media (prefers-reduced-motion:reduce){.fb{animation:none}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+(function(){
+var ORG={name:"معاً ضد العنف ضد المرأة",logo:""};
+var WIN_TARGET=3;
+var NUMS=[
+  ["مركز بلاغات العنف الأسري","1919","الإبلاغ عن العنف الأسري وطلب المساعدة على مدار الساعة في جميع مناطق المملكة.","https://www.hrsd.gov.sa/ministry/about-ministry/about-us/ministry-sectors/767581"],
+  ["الطوارئ الموحّدة","911","مناطق مكة المكرمة والمدينة المنورة والرياض والمنطقة الشرقية."],
+  ["الشرطة","999","للبلاغات الأمنية العاجلة في بقية مناطق المملكة."]
+];
+var TYPES=["عنف جسدي","عنف نفسي","عنف لفظي","عنف اقتصادي","عنف إلكتروني","تحرش"];
+var MYTH=[
+["العنف يعني الضرب فقط.",false,"العنف قد يكون نفسياً أو لفظياً أو اقتصادياً أو إلكترونياً، وكلها تؤذي."],
+["التحكم في مصروف المرأة ومنعها من العمل شكل من أشكال العنف.",true,"هذا عنف اقتصادي، يحدّ من استقلالها وحريتها."],
+["العنف شأن عائلي ولا يحق لأحد التدخل.",false,"العنف ليس شأناً خاصاً، فالدعم والإبلاغ مسؤولية الجميع."],
+["الكلمات المهينة والتهديد المستمر تترك أثراً حقيقياً في الصحة النفسية.",true,"العنف اللفظي والنفسي له آثار عميقة حتى لو لم يترك علامات ظاهرة."],
+["إذا تحملت المرأة العنف فسيتوقف من تلقاء نفسه.",false,"العنف غالباً يتكرر ويزداد مع الوقت، وطلب المساعدة مبكراً أفضل."],
+["تصوير شخص أو تهديده بنشر صوره دون إذنه عنف إلكتروني.",true,"الابتزاز الإلكتروني جريمة يمكن الإبلاغ عنها."],
+["الضحية هي من تسببت في العنف.",false,"اللوم دائماً على من يمارس العنف، وليس على من تعرض له."],
+["توجد جهات تقدم الدعم والحماية بسرية واحترام.",true,"يمكن التواصل مع جهات الدعم وطلب المساعدة والإرشاد."],
+["العنف يحدث فقط في الأسر الفقيرة أو غير المتعلمة.",false,"العنف يحدث في كل الفئات والمستويات، ولا يرتبط بالدخل أو التعليم."],
+["التهديد بحرمان المرأة من أبنائها لإخضاعها شكل من العنف النفسي.",true,"التخويف والتهديد من أساليب التحكم والإيذاء النفسي."],
+["بقاء المرأة في علاقة عنيفة يعني أنها راضية بالوضع.",false,"قد يمنعها الخوف أو الاعتماد المالي أو الضغط الاجتماعي من المغادرة."],
+["الغيرة الشديدة والمراقبة دليل على الحب.",false,"المراقبة والتحكم ليسا حباً، فالحب يقوم على الثقة والاحترام."],
+["الإبلاغ عن العنف قد يحمي الضحية وينقذ حياتها.",true,"الإبلاغ المبكر يفتح باب الحماية والدعم."],
+["العنف ضد المرأة قضية تخص المجتمع كله وليس النساء فقط.",true,"الجميع شركاء في الوقاية والدعم، رجالاً ونساءً."],
+["العنف الجسدي هو الشكل الوحيد الذي يستحق الإبلاغ.",false,"كل أشكال العنف، النفسي واللفظي والاقتصادي والجسدي، تستحق الدعم والإبلاغ."],
+["الأطفال الذين يشهدون العنف في بيتهم يتأثرون به حتى لو لم يتعرضوا له مباشرة.",true,"مشاهدة العنف تترك آثاراً نفسية وسلوكية عميقة على الأطفال."],
+["الغضب يبرر العنف.",false,"الغضب شعور طبيعي، أما العنف فسلوك يمكن اختيار تجنبه."],
+["التحرش بالأقوال أو الأفعال أو الإشارات ذات الطابع الجنسي مخالف للنظام ولو لم يحدث لمس.",true,"نظام مكافحة التحرش في المملكة يشمل الأقوال والأفعال والإشارات."],
+["العنف لا يترك أثراً إلا إذا ظهرت كدمات.",false,"الأذى النفسي قد يكون أشد وأطول أثراً، وإن لم يظهر على الجسد."],
+["العنف قد يأتي من أي دائرة: شريك أو قريب أو زميل أو غريب.",true,"لذلك يجب أن يجد المتضرر من يصدقه ويدعمه."],
+["الاعتذار والهدايا بعد العنف يعنيان أنه لن يتكرر.",false,"الاعتذار وحده لا يوقف العنف، فهو غالباً يتكرر دون تغيير حقيقي."],
+["العنف يؤثر في الصحة النفسية والجسدية معاً، كالقلق والأرق والآلام المزمنة.",true,"آثار العنف تمتد إلى الجسد والنفس والحياة اليومية."],
+["كبار السن وذوو الإعاقة، ومنهم النساء، قد يتعرضون للعنف والإهمال أيضاً.",true,"هؤلاء يحتاجون إلى مزيد من الانتباه والحماية."],
+["إجبار المرأة على الزواج أو منعها منه بالإكراه شكل من أشكال العنف.",true,"لكل امرأة الحق في اختيار حياتها دون إكراه."],
+["يمكن أن يستمر التحكم والإيذاء بعد انتهاء العلاقة.",true,"قد يستمر الإيذاء بعد الانفصال، مثل الملاحقة أو إرسال التهديدات."],
+["يجب على من تعرضت للعنف أن تروي كل التفاصيل قبل أن تستحق الدعم.",false,"يمكن أن تستمع إليها وتعرض المساعدة بالقدر الذي ترتاح لمشاركته."],
+["قد يكون إجبار المرأة على أخذ قرض باسمها شكلاً من العنف الاقتصادي.",true,"إجبارها على تحمل دين يقيّد قدرتها على اتخاذ قراراتها المالية."],
+["إتاحة الوصول إلى هاتفك مرة واحدة تعني السماح بتفتيشه في أي وقت.",false,"الإذن مرة واحدة يخص ذلك الموقف، ويمكن تغيير القرار في أي وقت."],
+["يمكن تقديم مساعدة عملية بسؤال المرأة عما تحتاج إليه الآن.",true,"السؤال عن احتياجها يعطيها مساحة لاختيار الدعم المناسب لها."],
+["يصبح نشر عنوان امرأة لإخافتها مقبولاً إذا كان في مجموعة مغلقة.",false,"مشاركة عنوانها بقصد تخويفها قد تهدد خصوصيتها وسلامتها حتى داخل مجموعة مغلقة."],
+["منع شخص من الوصول إلى وسيلة يحتاجها للحركة قد يُستخدم للسيطرة عليه.",true,"حرمانه من وسيلة يعتمد عليها يقيّد حركته واستقلاله."],
+["الشعور بالارتباك عند الحديث عن الإيذاء دليل على أن الشخص يبالغ.",false,"قد يتحدث الشخص بتردد أو ارتباك. الاستماع بهدوء يساعده على الكلام بالطريقة التي تناسبه."],
+["يمكن أن تختلف الطريقة التي ترغب بها امرأتان في تلقي الدعم.",true,"تختلف الاحتياجات والظروف، لذلك اسأل كل امرأة عن الدعم الذي تفضّله."],
+["الاتفاق المشترك على ميزانية البيت يبرر منع أحد الطرفين من الوصول إلى ماله.",false,"الاتفاق على المصروف يقوم على الاختيار المشترك مع احترام الاستقلال المالي."],
+["قد يستخدم شخص حساباً منتحلاً للإضرار بسمعة امرأة وإيذائها.",true,"انتحال الحساب للتشهير أو المضايقة مثال على الإيذاء الرقمي."],
+["يمكن معرفة أن العلاقة آمنة بمجرد رؤية طريقة تعامل الطرفين أمام الآخرين.",false,"ما نراه في العلن جزء من الصورة. خذ كلام من تروي تجربتها بجدية."]];
+function spotScene(first,link,second,answer,explanation){
+  return {q:first+link+second+".",spotLink:link,
+    o:[[first,answer===0,explanation],[second,answer===1,explanation]]};
+}
+var SPOT=[
+  spotScene("اتفقوا على مصروف البيت","، وبعدها ","أخذ بطاقتها ومنعها تستخدم راتبها",1,
+    "هنا بدأ التحكّم بمالها، لأنه منعها من الوصول إلى راتبها."),
+  spotScene("أجبرها تعطيه رمز جوالها","، وبعدها ","سألها عن يومها",0,
+    "إجبارها على إعطاء رمز الجوال يتجاوز خصوصيتها."),
+  spotScene("سألها إذا تبي تشارك موقعها","، ثم ","اشترط مشاركة موقعها عشان يسمح لها تطلع",1,
+    "صار الموقع شرطًا على خروجها، وهذا تحكّم في حركتها."),
+  spotScene("هدد بنشر صورتها إذا رفضت طلبه","، ثم ","سألها متى يناسبها تتكلم",0,
+    "التهديد بنشر الصورة ضغط عليها عشان توافق."),
+  spotScene("اتفقوا يأجّلون النقاش","، لكنه ","كسر أغراضها عشان يخوّفها",1,
+    "تكسير أغراضها بقصد التخويف شكل من الإيذاء النفسي."),
+  spotScene("قال لها إنها السبب في إهانته لها","، وبعدها ","اقترح يرجعون للنقاش بعد الدوام",0,
+    "حمّلها مسؤولية تصرّف اختاره هو."),
+  spotScene("سألها إذا تبي تسمع رأيه","، وبعدها ","نشر قصتها في المجموعة بدون إذنها",1,
+    "نشر كلامها الخاص بدون إذنها تعدّى على خصوصيتها."),
+  spotScene("منعها من زيارة أهلها عشان توافق على رأيه","، وبعدها ","اقترح يرجعون للنقاش بكرة",0,
+    "ربط زيارة أهلها بموافقتها على رأيه طريقة للضغط والعزل."),
+  spotScene("طلب منها توضّح فكرتها","، وبعدها ","سخر من كلامها قدّام الزملاء",1,
+    "السخرية قدّام الناس تجرحها وتقلّل من شأنها."),
+  spotScene("أجبرها توقّع على قرض باسمها","، وبعدها ","فتح موضوع ميزانية البيت",0,
+    "إجبارها على دين باسمها يقيّد قراراتها المالية."),
+  spotScene("قالت له تبي يوقف الرسائل","، لكنه ","ظل يراسلها من أرقام جديدة",1,
+    "استمرار الرسائل من أرقام ثانية تجاهل طلبها الواضح بالتوقف."),
+  spotScene("أصرّ يتكلم عنها في الموعد رغم طلبها تتكلم بنفسها","، ثم ","اتفق معها على وقت اللقاء",0,
+    "كان يقدر يرافقها ويترك لها اختيار الكلام بنفسها.")
+];
+var SCEN=[
+{q:"صديقة لك تلمّح إلى أنها خائفة من أحد في بيتها. ما التصرف الأنسب؟",o:[["أستمع لها بهدوء دون لوم وأعرّفها بجهات الدعم",1,"الاستماع دون حكم ثم التعريف بالدعم هو أهم خطوة."],["أقول لها: أكيد أنك تبالغين",0,"التقليل من كلامها يجعلها تتوقف عن طلب المساعدة."],["أتجاهل الموضوع حتى لا أتدخل",0,"وجودك بجانبها قد يكون فارقاً."]]},
+{q:"جارٌ يعنّف زوجته بصوت مرتفع وبشكل متكرر. ما التصرف الأنسب؟",o:[["أتواصل مع جهة الإبلاغ المختصة",1,"الإبلاغ مسؤولية مجتمعية، والجهات المختصة تتعامل مع البلاغ بسرية."],["أقول: هذه مشاكل أسرية لا تخصنا",0,"السكوت قد يزيد الخطر."],["أتدخل بنفسي بشكل مباشر وبانفعال",0,"التدخل المباشر قد يعرض الجميع للخطر، والأفضل طلب المختصين."]]},
+{q:"زميلة لك تعرضت لابتزاز إلكتروني وتخشى الإفصاح. ما الذي يُنصح به؟",o:[["ألا تستجيب للمبتز، وتحتفظ بالأدلة، وتبلّغ الجهات المختصة",1,"حفظ الأدلة وعدم الاستجابة والإبلاغ هي الخطوات الصحيحة."],["أن تنفذ ما يطلبه حتى يتوقف",0,"الاستجابة تزيد الابتزاز ولا توقفه."],["أن تتجاهل الأمر لأنه سيتوقف وحده",0,"الابتزاز غالباً لا يتوقف دون تدخل."]]},
+{q:"امرأة أخبرتك بأنها تتعرض للعنف لكنها لا تريد الإبلاغ الآن. ما التصرف الأنسب؟",o:[["أحترم مشاعرها وأبقى بجانبها وأعرض عليها خيارات الدعم",1,"الدعم دون ضغط يبني الثقة وتبقى الأبواب مفتوحة."],["أضغط عليها لتبلّغ فوراً",0,"الضغط قد يدفعها إلى الصمت."],["أخبر أهلها وجيرانها بالموضوع",0,"إفشاء السر قد يضرها، واحترام خصوصيتها مهم."]]},
+{q:"رأيتَ في مجموعة تعليقاً يسخر من امرأة تعرضت للعنف ويلومها. ما التصرف الأنسب؟",o:[["أوضح بهدوء أن اللوم على من مارس العنف، وأبلّغ عن التعليق",1,"تصحيح الفكرة ودعم الضحية يواجهان ثقافة اللوم."],["أضحك مع المجموعة حتى لا أحرج نفسي",0,"المجاراة تشجع على التنمر واللوم."],["أتجاهل التعليق",0,"الصمت قد يُفهم موافقة."]]},
+{q:"قريبة لك ظهرت عليها كدمات وقالت إنها سقطت، لكن كلامها غير مقنع. ما التصرف الأنسب؟",o:[["أسألها بلطف وعلى انفراد، وأخبرها أنني معها متى احتاجت",1,"السؤال اللطيف في مكان آمن يفتح باب الثقة."],["أواجه الشخص المشتبه به مباشرة",0,"المواجهة قد تزيد الخطر عليها."],["أصدقها وأنسى الموضوع",0,"قد تحتاج فرصة لتتحدث بأمان."]]},
+{q:"امرأة تسألك: إلى أين أذهب؟ فهي تتعرض للعنف. ما التصرف الأنسب؟",o:[["أعرّفها بجهات الدعم وأرقام الإبلاغ وأساعدها على التفكير في خطة لسلامتها",1,"المعلومة الصحيحة والدعم العملي يساعدانها على اتخاذ قرارها."],["أنصحها بالتحمل من أجل الأبناء",0,"التحمل قد يعرضها وأبناءها لمزيد من الخطر."],["أطلب منها مواجهته وحدها",0,"المواجهة وحدها قد تكون خطيرة."]]},
+{q:"زميلة لك تتعرض لمضايقات متكررة من زميل في العمل. ما التصرف الأنسب؟",o:[["أدعمها لتوثّق ما يحدث وتبلّغ الجهة المختصة",1,"التوثيق والإبلاغ يحميانها ويثبتان حقها."],["أنصحها بالتجاهل فقط",0,"التجاهل قد يشجع على الاستمرار."],["أخبر زملاء العمل جميعاً بالقصة",0,"نشر الأمر دون إذنها قد يضرها."]]},
+{q:"طفل في أسرة قريبة يبدو خائفاً وتسمع عن عنف في بيته. ما التصرف الأنسب؟",o:[["أتواصل مع جهة الإبلاغ المختصة",1,"الأطفال بحاجة إلى حماية عاجلة، والإبلاغ مسؤولية الجميع."],["أنتظر حتى يكبر ويتحدث بنفسه",0,"الانتظار قد يزيد الضرر عليه."],["أتصل بالمعتدي وأعاتبه",0,"العتاب قد يزيد الخطر على الطفل."]]},
+{q:"شخص يقول لك: هي التي استفزته فضربها. ما التصرف الأنسب؟",o:[["أوضح أن لا شيء يبرر العنف وأن المسؤولية على من ضرب",1,"لا استفزاز يبرر العنف، فالمسؤولية على من اختار الإيذاء."],["أوافقه حتى لا أدخل في جدال",0,"الموافقة تعني تبرير العنف."],["أقول: هذا أمر بينهما",0,"العنف ليس شأناً خاصاً."]]},
+{q:"صديقة أخبرتك بإساءة ثم توقفت عن الكلام وقالت إنها تحتاج لحظة. كيف ترد؟",o:[["أقول لها خذي وقتك، وأنا أسمع لك متى أحببتِ",1,"إعطاؤها الوقت يخفف الضغط ويحترم قدرتها على اختيار ما تقوله."],["أكمل عنها وأفسر بقية القصة",0,"افتراض تفاصيل تجربتها قد يمنعها من التعبير عما تريد."],["أطلب منها إكمال القصة قبل أن أساعدها",0,"جعل المساعدة مشروطة بسرد التفاصيل يزيد الضغط عليها."]]},
+{q:"زميلة تطلب منكم في مجموعة دردشة التوقف عن تداول صورة شخصية لها. كيف تتصرف؟",o:[["أتوقف عن تداولها وأطلب احترام طلبها",1,"وقف إعادة النشر يحمي خصوصيتها ويخفف انتشار الصورة."],["أعيد نشرها لكي أوضح أي صورة تقصد",0,"إعادة النشر توسّع انتشار الصورة."],["أطلب منها أن تشرح للجميع لماذا ترفض",0,"طلب الخصوصية حق يمكن احترامه مباشرة."]]},
+{q:"تعرف امرأة تحتاج وسيلة نقل إلى موعد دعم وقد طلبت مساعدتك. كيف تساعدها؟",o:[["أسأل عن الوقت والطريقة المناسبين لها وأتفق معها",1,"المساعدة العملية تكون أنسب عندما تستجيب لاحتياجها واختيارها."],["أحدد الموعد ثم أخبر معارفها أين ستذهب",0,"إخبار الآخرين بالمكان قد يكشف معلومات خاصة بها."],["أطلب منها رفض الموعد حتى تتوفر طريقتي المفضلة",0,"المرونة في المساعدة تترك لها حرية الاختيار."]]},
+{q:"تطلب منك قريبة أن تكون معها أثناء اتصالها بجهة دعم. ما أفضل تصرف؟",o:[["أسألها إن كانت تفضّل وجودي فقط أو تحتاج مساعدة في الكلام",1,"ترك القرار لها يحترم صوتها ويتيح تقديم المساندة المطلوبة."],["أتحدث نيابة عنها طوال الاتصال من دون سؤالها",0,"قد ترغب في أن تشرح وضعها بنفسها."],["أشترط أن أقرر عنها ما ستفعله بعد الاتصال",0,"المساندة تترك لها حق اتخاذ قرارها."]]},
+{q:"أخبرتك امرأة أن شخصاً يراقب الرسائل على هاتفها. كيف تتفقان على متابعة الحديث؟",o:[["أسألها عن الوقت والطريقة اللذين ترتاح لهما للتواصل",1,"اتفاقكما على قناة ووقت مناسبين لها يقلل احتمال كشف الحديث."],["أرسل تفاصيل الحديث مباشرة إلى هاتفها",0,"وصول التفاصيل إلى هاتف مراقَب قد يكشفها."],["أرسل ملخص الحديث إلى مجموعة العائلة",0,"النشر في المجموعة يفقدها التحكم في من يعرف التفاصيل."]]},
+{q:"في فعالية توعوية، يقترح أحدهم استخدام قصة حقيقية بتفاصيل يمكن أن تكشف صاحبتها. ما البديل؟",o:[["أقترح مثالاً افتراضياً يشرح الفكرة ويحمي خصوصيتها",1,"يمكن توضيح السلوك نفسه بموقف افتراضي يحافظ على سرية الأشخاص."],["أحذف الاسم وأحتفظ بصورتها ومكان العمل",0,"الصورة ومكان العمل قد يكشفان هويتها."],["أعرض القصة لأن النية توعوية",0,"الهدف التوعوي يمكن تحقيقه مع احترام الخصوصية."]]},
+{q:"قالت لك صديقة إن شريكها يحملها مسؤولية كل مرة يسيء إليها. ما الرد؟",o:[["أقول لها إن المسؤولية تقع على من اختار الإساءة",1,"توضيح المسؤولية يدعمها ويساعدها على تمييز اللوم عن الحقيقة."],["أطلب منها أن تعتذر أولاً حتى تهدأ الأمور",0,"تحميلها مسؤولية الإيذاء يزيد الضغط عليها."],["أقول إن رد فعله يدل على اهتمامه بها",0,"الإيذاء واللوم المتكرر علامتان على علاقة غير آمنة."]]},
+{q:"تسألك متدرّبة إن كان عليها كشف ما مرت به شخصياً كي تشارك في نشاط عن العنف. كيف تجيب؟",o:[["أوضح أن بإمكانها المشاركة بأمثلة عامة، وأن مشاركة تجربتها اختيارية",1,"يمكن تعلّم الفكرة وإثراء النقاش من دون الإفصاح عن تجربة شخصية."],["أشترط أن تحكي قصتها أولاً",0,"اشتراط الإفصاح يضعها تحت ضغط غير لازم."],["أطلب منها أن تكتب التفاصيل وتضع اسمها",0,"المشاركة في التوعية لا تتطلب تسجيل بياناتها أو تفاصيل تجربتها."]]},
+{q:"صديقة قالت إن أحداً استولى على بطاقتها البنكية ويسيطر على مصروفها. كيف ترد أولاً؟",o:[["آخذ كلامها بجدية وأسألها عن نوع المساعدة الذي تريده",1,"التحكم بمالها قد يكون إيذاءً اقتصادياً، والاستماع يساعدها على اختيار الدعم."],["أعتبر ذلك مجرد خلاف بسيط على الميزانية",0,"وضع ميزانية يختلف عن أخذ البطاقة وحرمانها من مالها."],["أطلب تفاصيل حسابها وكلمة المرور حتى أقرر عنها",0,"يمكن مساندتها مع احترام أمان حسابها وحقها في اتخاذ القرار."]]},
+{q:"بعد أن استمعتَ إلى قريبة، قالت إنها تفضّل ألا تتحدث اليوم عن أي خطوة تالية. كيف تنهي اللقاء؟",o:[["أقول لها إنني متاح إذا أرادت العودة للحديث وأحترم طلبها",1,"يمكن إبقاء باب المساندة مفتوحاً مع احترام الوقت الذي تختاره."],["أحدد لها خطوة يجب أن تنفذها الليلة",0,"فرض موعد أو خطة قد يزيد الضغط عليها."],["أخبرها أنني سأتوقف عن دعمها إذا غيرت رأيها",0,"ربط الدعم بقرار محدد قد يصعّب عليها العودة للحديث."]]},
+{q:"في نقاش، يقول شخص إن طلب المساعدة يقتصر على من قرّرت الإبلاغ. كيف تصحح المعلومة؟",o:[["أوضح أن الاستماع ومعرفة خيارات الدعم ممكنان قبل اتخاذ أي قرار",1,"معرفة الخيارات تمنحها فرصة للتفكير واختيار الخطوة المناسبة."],["أقول لها أن تختار فوراً قبل أن تسمع عن الخيارات",0,"من المفيد أن تفهم الخيارات أولاً."],["أحوّل النقاش إلى أسئلة شخصية أمام الحضور",0,"يمكن تصحيح المعلومة دون طلب تفاصيل خاصة."]]},
+{q:"أخبرتك صديقة أنها تسمع عبارات مؤذية كل يوم، وتساءلت إن كانت تبالغ. ما أفضل رد؟",o:[["أقول إن أثر الإهانات يستحق الاهتمام وأسأل كيف أساندها",1,"الاعتراف بتجربتها يترك لها مساحة لتصف أثرها وتطلب الدعم المناسب."],["أقول لها إن عليها الاعتياد على طريقة حديثه",0,"تكرار الإهانات لا يجعلها مقبولة."],["أطلب منها إثبات الأمر قبل أن أستمع إليها",0,"الاستماع والدعم لا يتطلبان أن تثبت لك ما حدث."]]}];
+var MATCH=[
+["دفع وصفع وشد بالقوة","عنف جسدي","الإيذاء المباشر للجسد عنف جسدي."],
+["الصراخ والشتم والسخرية أمام الآخرين","عنف لفظي","الإهانة بالكلام عنف لفظي."],
+["التهديد والتخويف وعزلها عن أهلها","عنف نفسي","التخويف والعزل يؤذيان الصحة النفسية."],
+["حرمانها من مصروفها أو منعها من العمل","عنف اقتصادي","التحكم في المال عنف اقتصادي."],
+["ابتزازها بالصور ومراقبة حساباتها","عنف إلكتروني","الإساءة عبر الوسائل الرقمية عنف إلكتروني."],
+["إجبارها على التنازل عن راتبها أو توقيع أوراق دون رغبتها","عنف اقتصادي","استغلال المال لإخضاعها عنف اقتصادي."],
+["اتهامها المستمر بالخيانة والتحكم فيمن تقابل","عنف نفسي","التحكم والاتهام المستمر عنف نفسي."],
+["تعليقات ومضايقات متكررة ذات طابع جنسي في العمل أو الشارع","تحرش","التحرش مخالف للنظام ولو لم يحدث لمس."],
+["الضرب أو الدفع أو الركل","عنف جسدي","كل إيذاء للجسد عنف جسدي يستحق الحماية."],
+["كسر أغراضها وتحطيم أشيائها لتخويفها","عنف نفسي","تحطيم الأشياء للتخويف عنف نفسي."],
+["وصفها بألفاظ جارحة أمام أولادها","عنف لفظي","الإهانة بالكلام أمام الأبناء تؤذيها وتؤذيهم."],
+["إجبارها على أخذ قرض باسمها وترك الأقساط عليها","عنف اقتصادي","إجبارها على تحمل دين يقيّد قراراتها المالية."],
+["انتحال حسابها على منصة للتشهير بها","عنف إلكتروني","استخدام حساب منتحل للإضرار بها شكل من أشكال الإيذاء الرقمي."],
+["ليّ ذراعها بالقوة لمنعها من الخروج","عنف جسدي","إيذاء جسدها بالقوة مثال واضح على العنف الجسدي."],
+["إقناعها باستمرار أنها تتخيل ما تتذكره كي تفقد ثقتها بحكمها","عنف نفسي","التشكيك المتعمد في ذاكرتها واستيعابها وسيلة للتحكم النفسي."],
+["تعمد مناداتها في كل اجتماع بلقب مهين","عنف لفظي","استخدام لقب للإهانة هو إيذاء بالكلام."],
+["توجيه أسئلة جنسية متطفلة لزميلة في العمل","تحرش","الأسئلة الجنسية غير المرغوبة مثال على التحرش في العمل."],
+["حجب بطاقتها البنكية عنها كي تعتمد كلياً على المال الذي يعطيها إياه","عنف اقتصادي","حرمانها من الوصول إلى مالها وسيلة للسيطرة المالية."],
+["نشر عنوان سكنها على الإنترنت بقصد تخويفها","عنف إلكتروني","كشف بياناتها الشخصية عبر الإنترنت بقصد الإيذاء مثال على العنف الإلكتروني."],
+["جذبها من شعرها لإيذائها","عنف جسدي","جذب الشعر بالقوة استخدام مباشر للقوة ضد الجسد."],
+["تهديدها باستخدام أسرارها للضغط عليها كي تقطع صداقاتها","عنف نفسي","استغلال أسرارها لتخويفها وعزلها شكل من أشكال التحكم النفسي."],
+["التعمد في تحقيرها بكلمات مهينة كلما احتاجت إلى توضيح فكرة","عنف لفظي","تحقير الشخص بعبارات جارحة يندرج تحت الإيذاء اللفظي."],
+["استخدام إشارات جنسية غير مرغوبة تجاه امرأة في مكان عام","تحرش","التصرف ذو الطابع الجنسي غير المرغوب فيه قد يحدث بالإشارات أيضاً."]];
+var TIPS=["الاستماع دون لوم أول خطوة في دعم من تعرضت للعنف.","العنف ليس شأناً خاصاً، والإبلاغ عنه مسؤولية مجتمعية.","طلب المساعدة ليس ضعفاً، بل خطوة شجاعة نحو الأمان.","العلاقة الصحية تقوم على الاحترام والثقة لا على الخوف والتحكم.","لا مبرر للعنف، واللوم دائماً على من يمارسه."];
+var PH=["أتعهد أن أستمع دون لوم","أتعهد أن أكون سنداً لمن حولي","أتعهد ألا أصمت عن العنف","الاحترام أساس كل علاقة","أدعم من حولي وأعرّفهم بجهات الدعم","أتعهد ألا ألوم من تعرضت للعنف"];
+
+var OKH=["أصبت! 🧡","فكرة واعية 👏","هكذا نحمي بعضنا","إجابة تصنع فرقاً","ممتاز، وعيك واضح ✨","أحسنت، تابع!"];
+var NOH=["لا بأس، فهكذا نتعلم","كثيرون يظنون ذلك","قريب، وإليك الصورة الكاملة","فرصة جميلة للتعلم","معلومة تستحق التوقف"];
+var OKX=["كل إجابة صحيحة تنشر الوعي.","الوعي يبدأ بسؤال.","ما تعرفه قد ينقذ شخصاً قريباً منك.","شكراً لأنك تهتم."];
+var ENDS=["الوعي أول خطوة نحو الحماية.","شكراً لأنك تهتم، فاهتمامك يصنع فرقاً.","شارك ما تعلمته مع من تحب.","كلنا شركاء في صنع مجتمع آمن."];
+var PF=[
+["أتعهد ألا أصمت عن العنف","صمتنا لا يحمي أحداً، وكلمتنا قد تنقذ."],
+["أتعهد أن أستمع دون لوم لمن تعرضت للعنف","الاستماع قد يكون أول باب للأمان."],
+["أتعهد أن أكون سنداً لمن يتعرض للعنف","سند واحد قد يغيّر قصة كاملة."],
+["أتعهد ألا أبرر العنف بأي حال","لا مبرر للعنف، واللوم على من يمارسه."],
+["أتعهد أن أعرّف من أحب بجهات الدعم والإبلاغ","معلومة صحيحة في وقتها قد تنقذ حياة."],
+["أتعهد أن أرفض الإيذاء بكل أشكاله","الإيذاء مرفوض، جسدياً كان أو نفسياً أو لفظياً."]];
+var PL=[
+["أتعهد أن أستمع دون لوم","الاستماع قد يكون أول باب للأمان."],
+["أتعهد ألا أصمت عن العنف","صمتنا لا يحمي أحداً، وكلمتنا قد تنقذ."],
+["أتعهد أن أكون سنداً لمن حولي","سند واحد قد يغيّر قصة كاملة."],
+["أتعهد ألا ألوم من تعرضت للعنف","اللوم على من يمارس العنف، لا على من تعرض له."],
+["أتعهد أن أحترم كل من أتعامل معه","الاحترام يبدأ من تفاصيلنا اليومية."],
+["أتعهد أن أعرّف من أحب بجهات الدعم","معلومة صحيحة في وقتها قد تصنع فرقاً."],
+["أتعهد ألا أقلل من ألم أحد","كلمة «أنا أصدقك» تغيّر الكثير."],
+["أتعهد أن أغرس الاحترام في الجيل القادم","القدوة أقوى من أي نصيحة."],
+["أتعهد أن أرفض الإساءة بالكلمة والصورة","الإساءة الرقمية عنف حقيقي."],
+["أتعهد أن أنشر الوعي بين أسرتي وأصدقائي","وعي واحد قد يصل إلى عشرة."],
+["أتعهد أن أحترم قرار من يطلب مساعدتي","الدعم الحقيقي يحترم اختيار الشخص."],
+["أتعهد أن أجعل بيتي ومكان عملي آمنين","الأمان يبدأ من المكان الذي نصنعه."],
+["أتعهد أن أتحدث بلطف حتى عند الخلاف","الخلاف لا يبرر الإيذاء."],
+["أتعهد أن أصدّق وأدعم قبل أن أسأل","الدعم أولاً، والأسئلة لاحقاً."]];
+function pick(a){return a[Math.floor(Math.random()*a.length)]}
+function note(ok){return ok?'<div class="nt">'+pick(OKX)+'</div>':''}
+function celebrate(withBalloons){
+  if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  var layer=document.createElement("div");
+  layer.className="cf";
+  layer.setAttribute("aria-hidden","true");
+  var colors=["#ed7139","#e85086","#557ccd","#e8a827","#259e79"];
+  for(var i=0;i<(withBalloons?30:18);i++){
+    var piece=document.createElement("span");
+    piece.style.left=(4+Math.random()*88)+"%";
+    piece.style.animationDuration=(2.2+Math.random()*1.6)+"s";
+    piece.style.animationDelay=(Math.random()*.85)+"s";
+    if(withBalloons&&i<12){
+      piece.className="balloon";
+      piece.style.setProperty("--balloon",colors[i%colors.length]);
+    }else{
+      piece.textContent=pick(["🧡","✨","🎉","✦"]);
+    }
+    layer.appendChild(piece);
+  }
+  document.body.appendChild(layer);
+  setTimeout(function(){layer.remove()},4800);
+}
+var app=document.getElementById("app"),played=0,fsz=1;
+var arabicNumber=new Intl.NumberFormat("ar-SA-u-nu-arab");
+function g(i){return document.getElementById(i)}
+function $(html){
+  app.innerHTML=html;
+  window.scrollTo(0,0);
+  var heading=g("screen-focus");
+  if(heading)heading.focus({preventScroll:true});
+}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+var questionHistory=new Map();
+function questionKey(item){return typeof item==="string"?item:item.q||item[0]}
+function deal(game,bank,count){
+  var key="awareness-question-history-v1:"+game;
+  var history=questionHistory.get(key);
+  try{
+    var saved=JSON.parse(window.localStorage.getItem(key));
+    if(saved&&Array.isArray(saved.seen)&&Array.isArray(saved.last))history=saved;
+  }catch(error){ /* The rotation still works within this tab. */ }
+  var seen=new Set(history?history.seen:[]);
+  var last=new Set(history?history.last:[]);
+  var shuffled=shuffle(bank);
+  var ordered=shuffled.filter(function(item){return !last.has(questionKey(item))})
+    .concat(shuffled.filter(function(item){return last.has(questionKey(item))}));
+  var current=ordered.filter(function(item){return !seen.has(questionKey(item))}).slice(0,count);
+  current.forEach(function(item){seen.add(questionKey(item))});
+  if(current.length<count){
+    var selected=new Set(current.map(questionKey));
+    // Finish the old bank first, then start a new pass with different questions.
+    var next=ordered.filter(function(item){return !selected.has(questionKey(item))}).slice(0,count-current.length);
+    seen=new Set(next.map(questionKey));
+    current=current.concat(next);
+  }
+  history={seen:Array.from(seen),last:current.map(questionKey)};
+  questionHistory.set(key,history);
+  try{window.localStorage.setItem(key,JSON.stringify(history))}catch(error){ /* Keep the in-memory rotation. */ }
+  return current;
+}
+function hdr(t){return '<div class="bar"><span>'+t+'</span><button onclick="home()">القائمة الرئيسية</button></div>'}
+function progress(n,i){
+  var dots="";
+  for(var k=0;k<n;k++)dots+='<i class="'+(k<=i?'on':'')+'"></i>';
+  return '<p class="progress">السؤال '+arabicNumber.format(i+1)+' من '+arabicNumber.format(n)+'</p>'+
+    '<div class="dots" aria-hidden="true">'+dots+'</div>';
+}
+function nextBtn(last){return '<button class="prim" id="n" style="width:100%">'+(last?'عرض النتيجة':'التالي')+'</button>'}
+function rank(s,n){var r=s/n;return r>=.8?"صوت الوعي 🧡":r>=.5?"على الطريق الصحيح":"بداية موفقة"}
+function winBadge(){
+  return '<div class="win"><span class="win-icon" aria-hidden="true">🏆</span>'+
+    '<div><strong>فزت!</strong><small>وصلت إلى '+arabicNumber.format(WIN_TARGET)+' إجابات صحيحة في هذه الجولة.</small></div></div>';
+}
+function victory(title,explanation,last,continueRound,stopRound,selectedScene){
+  $(hdr(title)+'<section class="victory-ticket" aria-labelledby="screen-focus">'+
+    '<div class="victory-trophy" aria-hidden="true">🏆</div>'+
+    '<h1 id="screen-focus" tabindex="-1">فزت!</h1>'+
+    '<p>وصلت إلى '+arabicNumber.format(WIN_TARGET)+' إجابات صحيحة.</p>'+
+    (selectedScene||"")+'<p class="victory-feedback">'+explanation+'</p></section>'+
+    '<div class="row victory-actions"><button class="prim" id="win-continue">'+(last?"عرض النتيجة":"أكمل اللعب")+'</button>'+
+    (last?"":'<button id="win-stop">أنهِ الجولة</button>')+'</div>');
+  g("win-continue").onclick=continueRound;
+  if(!last)g("win-stop").onclick=stopRound;
+  celebrate(true);
+}
+function review(missed){
+  if(!missed.length)return "";
+  return '<section class="card review"><h2>راجع إجاباتك</h2><ol>'+missed.map(function(item){
+    return '<li class="review-item" value="'+item.number+'"><h3>'+item.question+'</h3>'+
+      '<p><strong>إجابتك</strong> · '+item.chosen[0]+'</p>'+
+      '<p><strong>الإجابة الصحيحة</strong> · '+item.solution[0]+'</p><p>'+item.solution[2]+'</p></li>';
+  }).join("")+'</ol></section>';
+}
+function done(title,score,answered,total,missed,again){
+  played++;
+  $(hdr(title)+'<div class="card"><h1 id="screen-focus" class="rk" tabindex="-1">نتيجة الجولة</h1>'+
+    '<div class="score">'+arabicNumber.format(score)+' من '+arabicNumber.format(answered)+'</div>'+
+    (answered<total?'<p class="result-note">أنهيت الجولة بعد '+arabicNumber.format(answered)+' من '+arabicNumber.format(total)+' أسئلة.</p>':"")+
+    (score>=WIN_TARGET?winBadge():"")+
+    '<p class="rk">'+rank(score,answered)+'</p><p style="text-align:center;margin:0">'+pick(ENDS)+'</p></div>'+
+    review(missed)+'<div class="row"><button class="prim" id="r">العب مرة أخرى</button>'+
+    '<button id="learn-result">تعلّم أكثر</button><button id="h">أين أجد الدعم؟</button></div>');
+  g("r").onclick=again;
+  g("learn-result").onclick=learn;
+  g("h").onclick=help;
+}
+
+function questionKind(question){
+  return question.kind?'<p class="question-kind">'+question.kind+'</p>':"";
+}
+function spotSentence(question,chosen){
+  var phrases=question.o.map(function(option,index){
+    if(!chosen)return '<button class="spot-phrase" id="spot-option-'+index+'">'+option[0]+'</button>';
+    if(option[1]){
+      return '<mark class="spot-phrase spot-right"><span class="spot-sr">العبارة الصحيحة: </span>'+option[0]+'</mark>';
+    }
+    if(option===chosen){
+      return '<mark class="spot-phrase spot-missed"><span class="spot-sr">اختيارك: </span>'+option[0]+'</mark>';
+    }
+    return '<span class="spot-phrase">'+option[0]+'</span>';
+  });
+  return '<div class="spot-sentence"'+(chosen?"":' role="group" aria-label="اختر العبارة"')+'>'+
+    phrases.join(question.spotLink)+'.</div>';
+}
+function spotPrompt(question){
+  return '<h1 class="spot-prompt" id="screen-focus" tabindex="-1">اضغط على الجزء اللي فيه المشكلة</h1>'+
+    spotSentence(question);
+}
+function bindSpot(question,choose){
+  question.o.forEach(function(option,index){
+    g("spot-option-"+index).onclick=function(){choose(option)};
+  });
+}
+function quiz(title,questions,again,choiceLayout){
+  var index=0,score=0,missed=[];
+  var total=questions.length;
+  function finish(){done(title,score,index+1,total,missed,again)}
+  function advance(){
+    if(index+1===total){finish();return}
+    index++;
+    show();
+  }
+  function show(){
+    var question=questions[index];
+    if(question.spotLink){
+      $(hdr(title)+progress(total,index)+'<div class="card">'+questionKind(question)+spotPrompt(question)+'</div>');
+      bindSpot(question,function(option){answer(question,option)});
+      return;
+    }
+    $(hdr(title)+progress(total,index)+'<div class="card">'+questionKind(question)+
+      '<h1 class="q" id="screen-focus" tabindex="-1">'+question.q+'</h1></div>'+
+      '<div class="'+choiceLayout+'" id="o"></div>');
+    question.o.forEach(function(option){
+      var button=document.createElement("button");
+      button.textContent=option[0];
+      button.onclick=function(){answer(question,option)};
+      g("o").appendChild(button);
+    });
+  }
+  function answer(question,chosen){
+    var correct=Boolean(chosen[1]);
+    var solution=question.o.find(function(option){return option[1]});
+    var selectedScene=question.spotLink?spotSentence(question,chosen):"";
+    if(correct)score++;
+    else missed.push({number:index+1,question:question.q,chosen:chosen,solution:solution});
+    if(correct&&score===WIN_TARGET){
+      victory(title,solution[2],index+1===total,advance,finish,selectedScene);
+      return;
+    }
+    var tone=correct?"good":"bad";
+    var feedback=selectedScene?solution[2]:chosen[2]+
+      (correct?note(true):'<p class="nt">الإجابة الصحيحة · '+solution[0]+'</p>');
+    $(hdr(title)+progress(total,index)+
+      '<div class="card '+(selectedScene?"":tone)+'">'+questionKind(question)+
+      (selectedScene||'<div class="q">'+question.q+'</div>')+'</div>'+
+      '<div class="fb '+tone+'"><b id="screen-focus" tabindex="-1">'+(correct?pick(OKH):pick(NOH))+'</b>'+
+      feedback+'</div>'+
+      nextBtn(index===total-1));
+    g("n").onclick=advance;
+  }
+  show();
+}
+
+function binaryQuestion(item,trueLabel,falseLabel){
+  return {q:item[0],o:[[trueLabel,item[1],item[2]],[falseLabel,!item[1],item[2]]]};
+}
+function matchQuestion(item){
+  var others=shuffle(TYPES.filter(function(type){return type!==item[1]})).slice(0,3).map(function(type){
+    return [type,0,"هذا المثال يطابق: "+item[1]+"."];
+  });
+  return {q:"ما نوع العنف في هذا المثال؟ «"+item[0]+"»",o:shuffle([[item[1],1,item[2]]].concat(others))};
+}
+var QUIZ_GAMES={
+  myth:{title:"حقيقة أم خرافة؟",bank:MYTH,count:6,layout:"row",
+    prepare:function(item){return binaryQuestion(item,"حقيقة","خرافة")}},
+  spot:{title:"وين المشكلة؟",bank:SPOT},
+  scen:{title:"ماذا تفعل لو؟",bank:SCEN,count:4,layout:"opts",
+    prepare:function(item){return {q:item.q,o:shuffle(item.o)}}},
+  match:{title:"طابق النوع بالمثال",bank:MATCH,count:5,layout:"opts",prepare:matchQuestion}
+};
+function drawQuestions(key,count){
+  var game=QUIZ_GAMES[key];
+  var round=deal(key,game.bank,count);
+  return game.prepare?round.map(game.prepare):round;
+}
+function openGame(key){
+  var game=QUIZ_GAMES[key];
+  quiz(game.title,drawQuestions(key,game.count),function(){openGame(key)},game.layout);
+}
+function myth(){openGame("myth")}
+function scen(){openGame("scen")}
+function match(){openGame("match")}
+function spotGame(){
+  var title=QUIZ_GAMES.spot.title;
+  var question=drawQuestions("spot",1)[0];
+  $(hdr(title)+'<section class="spot-shell"><div class="card">'+spotPrompt(question)+'</div></section>');
+  bindSpot(question,function(option){
+    var solution=question.o.find(function(item){return item[1]});
+    $( '<section class="spot-shell"><div class="spot-feedback"><h1 id="screen-focus" tabindex="-1">'+
+      (option[1]?"أصبت!":"شوف العبارة المظلّلة")+'</h1><p>'+solution[2]+'</p></div>'+
+      '<div class="card">'+spotSentence(question,option)+'</div>'+
+      '<div class="spot-actions"><button class="prim" id="spot-next">موقف ثاني</button>'+
+      '<button id="spot-home">الرئيسية</button></div></section>');
+    g("spot-next").onclick=spotGame;
+    g("spot-home").onclick=home;
+  });
+}
+function quickGame(){
+  var questions=deal("quick-types",Object.keys(QUIZ_GAMES),3).map(function(key){
+    var question=drawQuestions(key,1)[0];
+    return Object.assign({kind:QUIZ_GAMES[key].title},question);
+  });
+  quiz("جولة سريعة",questions,quickGame,"opts");
+}
+function pledge(){
+  $(hdr("بطاقة التزامي")+'<div class="card"><h1 class="q" id="screen-focus" tabindex="-1" style="min-height:0;margin-bottom:12px">اختر التزامك</h1>'+
+    '<div class="opts" id="p"></div><input id="nm" maxlength="20" aria-label="اسمك (اختياري)" placeholder="اكتب اسمك (اختياري)" autocomplete="off"></div>'+
+    '<button class="prim" id="mk" style="width:100%">أنشئ بطاقتي</button>');
+  var options=g("p"),selected=null;
+  PF.forEach(function(item){
+    var button=document.createElement("button");
+    button.textContent=item[0];
+    button.setAttribute("aria-pressed","false");
+    button.onclick=function(){
+      selected=item;
+      Array.from(options.children).forEach(function(other){
+        other.classList.toggle("prim",other===button);
+        other.setAttribute("aria-pressed",other===button?"true":"false");
+      });
+      g("mk").textContent="أنشئ بطاقتي";
+    };
+    options.appendChild(button);
+  });
+  g("mk").onclick=function(){
+    if(!selected){g("mk").textContent="اختر التزاماً أولاً";return}
+    pcard(selected,g("nm").value.trim());
+  };
+}
+function pcard(item,name){
+  played++;
+  $(hdr("بطاقة التزامي")+'<div class="pc s'+Math.floor(Math.random()*3)+'" id="pledge-card">'+
+    '<div class="pb">🎗️ '+ORG.name+'</div><h1 class="pm" id="pm" style="color:inherit"></h1>'+
+    '<div class="pt" id="pt"></div><div class="pn" id="pn"></div><div class="pk" id="pk"></div></div>'+
+    '<div class="row"><button class="prim" id="dl">حمّل بطاقتك (PNG)</button><button id="ag">بطاقة أخرى</button>'+
+    '<button onclick="help()">أين أجد الدعم؟</button></div><p class="sub download-status" id="download-status" role="status"></p>');
+  var number=100+Math.floor(Math.random()*900);
+  var title="«"+item[0]+"»";
+  var signature=name?"— "+name:"";
+  var caption="بطاقة التزام رقم "+arabicNumber.format(number);
+  g("pm").textContent=title;
+  g("pt").textContent=item[1];
+  g("pn").textContent=signature;
+  g("pk").textContent=caption;
+  g("dl").onclick=function(){downloadCard(title,item[1],signature,caption,number)};
+  g("ag").onclick=pledge;
+  g("dl").focus({preventScroll:true});
+  celebrate(false);
+}
+
+function canvasLines(ctx,text,maxWidth){
+  var lines=[],line="";
+  text.split(/\s+/).forEach(function(word){
+    var next=line?line+" "+word:word;
+    if(line&&ctx.measureText(next).width>maxWidth){
+      lines.push(line);
+      line=word;
+    }else line=next;
+  });
+  if(line)lines.push(line);
+  return lines;
+}
+function downloadCard(title,description,signature,caption,number){
+  try{
+    var canvas=document.createElement("canvas");
+    canvas.width=1080;
+    canvas.height=800;
+    var ctx=canvas.getContext("2d");
+    if(!ctx)throw new Error("Canvas unavailable");
+    var palette=getComputedStyle(g("pledge-card"));
+    ctx.fillStyle=palette.backgroundColor;
+    ctx.fillRect(0,0,1080,800);
+    ctx.fillStyle=palette.color;
+    ctx.strokeStyle=palette.color;
+    ctx.globalAlpha=.3;
+    ctx.lineWidth=3;
+    ctx.strokeRect(36,36,1008,728);
+    ctx.globalAlpha=1;
+    ctx.textAlign="center";
+    ctx.textBaseline="middle";
+    ctx.direction="rtl";
+    var fonts=' "Tajawal","Segoe UI",Tahoma,Arial,sans-serif';
+    function text(content,weight,size,centerY,lineHeight){
+      ctx.font=weight+" "+size+"px"+fonts;
+      var lines=canvasLines(ctx,content,856);
+      lines.forEach(function(line,i){
+        ctx.fillText(line,540,centerY+(i-(lines.length-1)/2)*lineHeight,856);
+      });
+    }
+    text(ORG.name,700,42,125,50);
+    text(title,800,68,340,88);
+    text(description,400,41,520,58);
+    if(signature)text(signature,700,40,630,54);
+    text(caption,400,27,710,35);
+    var link=document.createElement("a");
+    link.href=canvas.toDataURL("image/png");
+    link.download="بطاقة-التزامي-"+number+".png";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    g("download-status").textContent="";
+  }catch(error){
+    g("download-status").textContent="تعذّر تجهيز الصورة على هذا المتصفح. جرّب متصفحاً آخر أو التقط صورة للبطاقة.";
+  }
+}
+function help(){
+  $(hdr("أين أجد الدعم؟")+'<section class="card"><h1 id="screen-focus" tabindex="-1">أين أجد الدعم؟</h1>'+
+    '<p>لستِ وحدكِ، ولستَ وحدك.</p><ul class="contacts">'+NUMS.map(function(contact){
+      return '<li><a class="call" href="tel:'+contact[1]+'">'+contact[0]+' <bdi class="num">'+contact[1]+'</bdi></a>'+
+        '<p>'+contact[2]+'</p>'+
+        (contact[3]?'<a class="support-info" href="'+contact[3]+'">صفحة مركز بلاغات العنف الأسري</a>':"")+'</li>';
+    }).join("")+'</ul></section>'+
+    '<section class="card"><b>كيف أدعم من تعرضت للعنف؟</b><ul class="l"><li>أستمع إليها دون لوم أو استعجال.</li>'+
+    '<li>أصدّقها وأؤكد لها أن اللوم على من يمارس العنف.</li><li>أعرّفها بجهات الدعم وأحترم قرارها.</li></ul></section>');
+}
+var LEARN_TOPICS=[
+  ["العنف ممكن يصير بدون ضرب",
+    "التهديد والتخويف والإذلال وسائل للإيذاء حتى لو ما تركت أثرًا ظاهرًا.",
+    "تحطيم الأغراض بقصد تخويف شخص مثال على الإيذاء النفسي."],
+  ["التحكم بالمال قد يكون عنفًا",
+    "السيطرة على مال شخص أو منعه من الوصول إليه قد تجعله معتمدًا على الطرف الآخر.",
+    "أخذ بطاقة الراتب بالقوة أو إجبار صاحبتها على قرض باسمها."],
+  ["الخصوصية جزء من العلاقة الصحية",
+    "مشاركة الموقع أو كلمات المرور قرار شخصي. ممكن تغيير القرار إذا ما عاد الشخص مرتاحًا له.",
+    "الضغط لمشاركة الموقع طوال اليوم واشتراطه للسماح بالخروج علامة تحكّم."],
+  ["الخلاف ممكن يكون صحيًا",
+    "وقت الخلاف، من علامات الاحترام إن كل طرف يقدر يقول رأيه أو يطلب وقفة.",
+    "تقدر تقول «خلينا نهدأ ونرجع نتكلم بعدين»، والطرف الآخر يحترم طلبك."],
+  ["الإيذاء ممكن يستمر بعد الانفصال",
+    "قد تستمر الملاحقة أو التهديدات بعد انتهاء العلاقة، وقد تحصل عبر الجوال.",
+    "إرسال رسائل مزعجة من أرقام جديدة بشكل متكرر بعد طلب التوقف."],
+  ["الاستماع خطوة من خطوات الدعم",
+    "إذا شخص كلمك عن إيذاء، خذ كلامه بجدية واسأله عن المساندة اللي يحتاجها.",
+    "تقدر تقول «أنا أسمعك. تبي أسمع بس، أو أساعدك في شيء معيّن؟»."]
+];
+function learn(){
+  $(hdr("تعلّم")+'<h1 id="screen-focus" tabindex="-1">تعلّم</h1>'+
+    '<p class="sub">افتح أي موضوع واقرأ معلومة قصيرة مع مثال.</p><div class="learn-list">'+
+    LEARN_TOPICS.map(function(topic){
+      return '<details class="learn-card"><summary>'+topic[0]+'</summary><div class="learn-detail">'+
+        '<p>'+topic[1]+'</p><p><strong>مثال</strong> · '+topic[2]+'</p></div></details>';
+    }).join("")+'</div><div class="row"><button class="prim" id="learn-quick">جرّب جولة سريعة</button>'+
+    '<button id="learn-support">أين أجد الدعم؟</button></div>'+
+    '<details class="learn-sources"><summary>مراجع المعلومات</summary><ul>'+
+    '<li><a href="https://www.un.org/en/node/71778">الأمم المتحدة · أشكال العنف الأسري</a></li>'+
+    '<li><a href="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/first-line-support-in-policy">منظمة الصحة العالمية · الاستماع والمساندة الأولية</a></li>'+
+    '</ul></details>');
+  g("learn-quick").onclick=quickGame;
+  g("learn-support").onclick=help;
+}
+function fs(){fsz=fsz>=1.3?1:fsz+0.15;document.documentElement.style.setProperty("--fs",fsz)}
+function home(){var tip=TIPS[Math.floor(Math.random()*TIPS.length)];
+$('<div class="menu"><div class="menu-actions"><button class="support-cta" onclick="help()">أين أجد الدعم؟</button>'+
+'<button onclick="fs()">حجم الخط Aa</button></div>'+(ORG.logo?'<img class="logo" alt="" src="'+ORG.logo+'">':'')+
+'<h1 id="screen-focus" tabindex="-1">🧡 '+ORG.name+'</h1><p class="sub">اختر نشاطًا للتعرّف على أشكال العنف وكيفية دعم من تتعرّض له.</p><div class="tip">'+tip+'</div>'+
+'<div class="home-featured"><button class="feature-button prim" onclick="quickGame()"><span class="feature-icon" aria-hidden="true">⚡</span>'+
+'<span><strong>جولة سريعة</strong><small>٣ أسئلة مختلطة</small></span></button>'+
+'<button class="feature-button" onclick="learn()"><span class="feature-icon" aria-hidden="true">📖</span>'+
+'<span><strong>تعلّم</strong><small>معلومات قصيرة مع أمثلة</small></span></button></div><div class="grid">'+
+'<button onclick="myth()">حقيقة أم خرافة؟<small>اكشف المفاهيم الخاطئة</small></button>'+
+'<button onclick="spotGame()">'+QUIZ_GAMES.spot.title+'<small>حدّد العبارة داخل الموقف</small></button>'+
+'<button onclick="scen()">ماذا تفعل لو؟<small>مواقف تحتاج إلى قرار</small></button>'+
+'<button onclick="match()">طابق النوع بالمثال<small>تعرّف على أنواع العنف</small></button>'+
+'<button onclick="pledge()">بطاقة التزامي<small>أنشئ بطاقة وحمّلها كصورة</small></button></div>'+
+(played?'<div class="cnt">عدد المشاركات اليوم: '+played+'</div>':'')+'</div>')}
+window.home=home;window.myth=myth;window.spotGame=spotGame;window.scen=scen;window.match=match;window.quickGame=quickGame;window.learn=learn;window.pledge=pledge;window.help=help;window.fs=fs;
+home();
+})();
+</script>
+</body>
+</html>
