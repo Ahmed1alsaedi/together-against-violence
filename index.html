@@ -65,6 +65,16 @@ button:focus-visible{outline:3px solid var(--pri);outline-offset:2px}
 .feature-button strong{display:block;font-size:1.22rem;line-height:1.3}
 .feature-button.prim small{color:inherit}
 .feature-icon{display:grid;place-items:center;flex:none;width:2.55rem;height:2.55rem;background:var(--bg);border-radius:12px;font-size:1.2rem}
+.social-feature{border-color:var(--pri)}
+.social-feature strong{color:var(--pri)}
+.social-nav{justify-content:flex-end}
+.social-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,225px),1fr));gap:12px;margin-bottom:16px}
+.social-step{padding:16px;border:2px solid var(--line);border-radius:17px;background:var(--card)}
+.social-step h2,.social-example h2{margin:0 0 7px;color:var(--pri);font-size:1.13rem}
+.social-step p,.social-example p{margin:0;font-size:1rem}
+.social-example{padding:16px 18px}
+.social-example blockquote{margin:0 0 9px;padding-inline-start:12px;border-inline-start:3px solid var(--pri);font-size:1.04rem}
+.social-support{min-height:48px;padding:8px 15px;font-size:1rem}
 .share-card{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:14px 22px;margin-top:22px;
   padding:16px 18px;border:2px solid var(--line);border-radius:20px;background:var(--card)}
 .share-card img{display:block;width:clamp(120px,26vw,144px);height:auto;flex:none}
@@ -715,6 +725,25 @@ function learn(){
   g("learn-quick").onclick=quickGame;
   g("learn-support").onclick=help;
 }
+function socialWork(){
+  $( '<div class="bar social-nav"><button onclick="home()">القائمة الرئيسية</button></div>'+
+    '<section aria-labelledby="screen-focus"><h1 id="screen-focus" tabindex="-1">الخدمة الاجتماعية</h1>'+
+    '<p class="sub">كيف تساعد الأخصائية الاجتماعية؟</p>'+
+    '<div class="social-steps">'+
+    '<article class="social-step"><h2>تستمع وتفهم الاحتياج</h2><p>تعطي المرأة المتعرّضة للعنف مساحة للكلام، وتسألها عن أكثر ما تحتاجه الآن.</p></article>'+
+    '<article class="social-step"><h2>توضّح الخيارات وتنسّق الدعم</h2><p>تشرح خيارات المساندة وتساعدها على الوصول إلى الجهة المناسبة بحسب حالتها.</p></article>'+
+    '<article class="social-step"><h2>تتابع الخطوات معها</h2><p>تُشركها في القرارات المتعلقة بها، وتحترم خصوصيتها وتوضّح حدود السرية.</p></article>'+
+    '</div><article class="card social-example"><h2>مثال</h2>'+
+    '<blockquote>امرأة تواصلت مع جهة دعم وقالت «ما أدري من وين أبدأ».</blockquote>'+
+    '<p>تستمع الأخصائية لها، وتساعدها في تحديد أول احتياج لها، مثل الوصول إلى إحدى خدمات الحماية الأسرية، ثم تتفق معها على الخطوة التالية.</p></article>'+
+    '<button class="prim social-support" id="social-support">أين أجد الدعم؟</button>'+
+    '<details class="learn-sources"><summary>مراجع المعلومات</summary><ul>'+
+    '<li><a href="https://www.hrsd.gov.sa/ministry/about-ministry/about-us/ministry-sectors/767581">وزارة الموارد البشرية والتنمية الاجتماعية · الحماية الأسرية</a></li>'+
+    '<li><a href="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/first-line-support-in-policy">منظمة الصحة العالمية · المساندة الأولية</a></li>'+
+    '<li><a href="https://www.ifsw.org/global-social-work-statement-of-ethical-principles/">الاتحاد الدولي للأخصائيين الاجتماعيين · المبادئ الأخلاقية</a></li>'+
+    '</ul></details></section>');
+  g("social-support").onclick=help;
+}
 function fs(){fsz=fsz>=1.3?1:fsz+0.15;document.documentElement.style.setProperty("--fs",fsz)}
 function home(){var tip=TIPS[Math.floor(Math.random()*TIPS.length)];
 $('<div class="menu"><div class="menu-actions"><button class="support-cta" onclick="help()">أين أجد الدعم؟</button>'+
@@ -722,6 +751,8 @@ $('<div class="menu"><div class="menu-actions"><button class="support-cta" oncli
 '<h1 id="screen-focus" tabindex="-1">🧡 '+ORG.name+'</h1><p class="sub">اختر نشاطًا للتعرّف على أشكال العنف وكيفية دعم من تتعرّض له.</p><div class="tip">'+tip+'</div>'+
 '<div class="home-featured"><button class="feature-button prim" onclick="quickGame()"><span class="feature-icon" aria-hidden="true">⚡</span>'+
 '<span><strong>جولة سريعة</strong><small>٣ أسئلة مختلطة</small></span></button>'+
+'<button class="feature-button social-feature" onclick="socialWork()"><span class="feature-icon" aria-hidden="true">🤝</span>'+
+'<span><strong>الخدمة الاجتماعية</strong><small>دور الأخصائية الاجتماعية</small></span></button>'+
 '<button class="feature-button" onclick="learn()"><span class="feature-icon" aria-hidden="true">📖</span>'+
 '<span><strong>تعلّم</strong><small>معلومات قصيرة مع أمثلة</small></span></button></div><div class="grid">'+
 '<button onclick="myth()">حقيقة أم خرافة؟<small>اكشف المفاهيم الخاطئة</small></button>'+
@@ -734,7 +765,7 @@ $('<div class="menu"><div class="menu-actions"><button class="support-cta" oncli
 '<div class="share-copy"><h2 id="share-heading">العب على جهازك</h2>'+
 '<p>وجّه الكاميرا إلى الرمز.</p><a href="'+SHARE_URL+'">رابط الموقع</a></div></section>'+
 (played?'<div class="cnt">عدد المشاركات اليوم: '+played+'</div>':'')+'</div>')}
-window.home=home;window.myth=myth;window.spotGame=spotGame;window.scen=scen;window.match=match;window.quickGame=quickGame;window.learn=learn;window.pledge=pledge;window.help=help;window.fs=fs;
+window.home=home;window.myth=myth;window.spotGame=spotGame;window.scen=scen;window.match=match;window.quickGame=quickGame;window.learn=learn;window.socialWork=socialWork;window.pledge=pledge;window.help=help;window.fs=fs;
 home();
 })();
 </script>
